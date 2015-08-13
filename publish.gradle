@@ -1,0 +1,21 @@
+buildscript {
+  repositories {
+      jcenter()
+  }
+
+  dependencies {
+    classpath 'org.ajoberstar:gradle-git:1.2.0'     
+  }
+}
+
+apply plugin: 'github-pages'                        
+
+githubPages {
+  repoUri = 'git@github.com:PabloBenjaminGutierrez/pablobenjamingutierrez.github.io.git'
+  targetBranch = 'master'
+  pages {
+     from(file('build/jbake')) {
+     	into '.'
+     }
+  }
+}
